@@ -127,9 +127,9 @@ text
 ### SƠ ĐỒ LUỒNG LÀM VIỆC:
 main (code chính, luôn ổn định)
 │
-├── feature/mpu6050 (bạn A làm cảm biến)
-├── feature/motor (bạn B làm động cơ)
-└── feature/ble (bạn C làm kết nối)
+├── tên bạn A 
+├── tên bạn B 
+└── tên bạn C
 
 text
 
@@ -138,21 +138,16 @@ text
 ```bash
 git checkout main
 git pull origin main
+```
 
 ### 5.2. TẠO NHÁNH RIÊNG (MỖI TÍNH NĂNG 1 NHÁNH)
 bash
 git checkout -b feature/ten_tinh_nang
 Ví dụ tên nhánh:
-
-feature/mpu6050 (cho cảm biến)
-
-feature/motor (cho động cơ)
-
-feature/ble (cho bluetooth)
-
-feature/espnow (cho ESP-NOW)
-
-fix/ten_loi (sửa lỗi)
+A
+B
+C
+D
 
 ### 5.3. CODE VÀ COMMIT
 Sửa code trong file src/main.cpp
@@ -161,28 +156,34 @@ Lưu file (Ctrl + S)
 
 Kiểm tra thay đổi:
 
-bash
+```bash
 git status
 Thêm file vào git:
+```
 
-bash
+```bash
 git add .
 Commit (lưu lại):
+```
 
-bash
+```bash
 git commit -m "mô tả rõ thay đổi"
+```
+
 Ví dụ commit message tốt:
 
-text
+```text
 ✅ "add: đọc dữ liệu từ MPU6050"
 ✅ "fix: sửa lỗi động cơ chạy ngược chiều"
 ✅ "update: tăng tốc độ gửi dữ liệu lên 50Hz"
 ❌ "sua code"
 ❌ "fix"
+```
 
 ### 5.4. PUSH LÊN GITHUB
-bash
+```bash
 git push -u origin feature/ten_tinh_nang
+```
 
 ### 5.5. TẠO PULL REQUEST (YÊU CẦU DUYỆT CODE)
 Mở trình duyệt vào repo GitHub
@@ -211,10 +212,11 @@ text
 Click "Create pull request"
 
 ### 5.6. SAU KHI ĐƯỢC DUYỆT (TRƯỞNG NHÓM MERGE XONG)
-bash
+```bash
 git checkout main
 git pull origin main
 git branch -d feature/ten_tinh_nang
+```
 
 ## 6. CÁC LỆNH GIT CƠ BẢN (TỔNG HỢP)
 Lệnh	Ý nghĩa	Khi nào dùng
@@ -234,23 +236,29 @@ Nguyên nhân: Đang ở sai thư mục
 
 Cách sửa:
 
-bash
+```bash
 cd D:\Controlling_car
+```
+
 LỖI 2: "Updates were rejected"
 Nguyên nhân: Code trên GitHub mới hơn code trong máy
 
 Cách sửa:
 
-bash
+```bash
 git pull origin main
+```
+
 LỖI 3: "Please tell me who you are"
 Nguyên nhân: Chưa cấu hình tên và email
 
 Cách sửa:
 
-bash
+```bash
 git config --global user.name "ten_cua_ban"
 git config --global user.email "email_cua_ban"
+```
+
 LỖI 4: Upload không thấy cổng COM
 Cách sửa:
 
@@ -262,27 +270,42 @@ Restart VS Code
 
 Chạy:
 
-bash
+```bash
 git add .
 git commit -m "resolve conflict"
 git push
+```
 
 # TÓM TẮT QUY TRÌNH (CHO MỖI LẦN LÀM VIỆC)
 bash
 ## 1. Lấy code mới nhất
+```bash
 git checkout main
 git pull origin main
+```
 
-## 2. Tạo nhánh mới
+## 2. Tạo nhánh mới hoặc chuyển sang nhánh mà mình đang sử dụng
+Nếu lần đầu chưa có nhanh:
+```bash
 git checkout -b feature/ten_tinh_nang
-
+```
+Nếu đã có nhánh:
+```bash
+git check out ten_nhanh
+```
 ## 3. Code, sửa file...
 
 ## 4. Lưu và commit
+```bash
 git add .
 git commit -m "mô tả thay đổi"
+```
 
 ## 5. Push lên GitHub
+```bash
 git push -u origin feature/ten_tinh_nang
+// hoặc chỉ cần đơn giản là
+git push
+```
 
 ## 6. Lên GitHub tạo Pull Request
